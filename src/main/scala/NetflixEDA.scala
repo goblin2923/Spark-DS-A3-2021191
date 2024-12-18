@@ -7,10 +7,10 @@ object NetflixEDA {
   def main(args: Array[String]): Unit = {
     try {
       // Initialize SparkSession
-      val spark = SparkSession.builder()
-        .appName("Netflix Titles EDA")
-        .config("spark.master", "local[*]") // Local mode
-        .getOrCreate()
+      spark = SparkSession.builder()
+      .appName("Netflix Titles EDA")
+      .config("spark.master", "local[*]") // Local mode
+      .getOrCreate()
 
       // Set log level to reduce verbosity
       spark.sparkContext.setLogLevel("ERROR")
@@ -107,14 +107,15 @@ object NetflixEDA {
       spark.stop()
 
       println(s"EDA outputs saved to the '${outputDir.getAbsolutePath}' folder.")
-    }
     } catch {
     case e: Exception =>
       println(s"An error occurred: ${e.getMessage}")
       e.printStackTrace()
-      spark.stop()
+      if (spark != null) spark.stop()
       System.exit(1)
+      
   } finally {
-    spark.stop()
+    if (spark != null) spark.stop()
   }
 }
+
