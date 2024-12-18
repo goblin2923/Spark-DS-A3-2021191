@@ -50,7 +50,7 @@ To get started with this project, follow the steps below:
 4. Build the Docker image:
 
     ```bash
-    docker build -t spark-netflix-analysis .
+    docker build -t spark-ready .
     ```
 
 --- 
@@ -60,7 +60,7 @@ To get started with this project, follow the steps below:
 Once the Docker image is built, you can run the container. Make sure to map the output directory to your local file system to access results:
 
 ```bash
-    docker run --rm -v $(pwd)/output:/app/output spark-netflix-analysis
+    docker run --rm -v $(pwd)/output:/app/output spark-ready
 ```
 This will execute the Spark job inside the Docker container, and the results will be saved in the output directory on your local machine.
 
