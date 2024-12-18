@@ -75,11 +75,11 @@ The project generates the following outputs, which are saved in the output/ fold
 ### Dataset Schema: 
 A comprehensive view of the schema, saved in output/schema.txt.
 ### Sample Data:
-The first 10 records from the dataset are saved in output/sample_data/.
+The first 5 records from the dataset are saved in output/sample_data/.
 ### Type Distribution (Movies vs TV Shows): 
 A CSV file showing the count of Movies and TV Shows, stored in output/type_count/.
-### Top 10 Countries with Most Titles: 
-The top 10 countries with the most content are saved in output/top_countries/.
+### Top 5 Countries with Most Titles: 
+The top 5 countries with the most content are saved in output/top_countries/.
 ### Popular Genres: 
 The most popular genres in the dataset, saved in output/popular_genres/.
 ### Titles Per Year: 
