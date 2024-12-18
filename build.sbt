@@ -2,6 +2,8 @@ name := "NetflixEDA"
 version := "1.0"
 scalaVersion := "2.12.17"
 
+publish/skip := true
+
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.4.0",
   "org.apache.spark" %% "spark-sql" % "3.4.0"
