@@ -5,15 +5,16 @@ import java.io._
 object NetflixEDA {
 
   def main(args: Array[String]): Unit = {
+    var spark: SparkSession = null  // Declare the Spark session variable
     try {
       // Initialize SparkSession
       spark = SparkSession.builder()
-      .appName("Netflix Titles EDA")
-      .config("spark.master", "local[*]") // Local mode
-      .getOrCreate()
+        .appName("Netflix Titles EDA")
+        .config("spark.master", "local[*]") // Local mode
+        .getOrCreate()
 
       // Set log level to reduce verbosity
-      spark.sparkContext.setLogLevel("ERROR")
+      spark.sparkContext.setLogLevel("running")
 
       // Load the Netflix dataset
       val filePath = "file:///" + new File("./netflix_titles.csv").getAbsolutePath
@@ -108,14 +109,13 @@ object NetflixEDA {
 
       println(s"EDA outputs saved to the '${outputDir.getAbsolutePath}' folder.")
     } catch {
-    case e: Exception =>
-      println(s"An error occurred: ${e.getMessage}")
-      e.printStackTrace()
+      case e: Exception =>
+        println(s"An error occurred: ${e.getMessage}")
+        e.printStackTrace()
+        if (spark != null) spark.stop()
+        System.exit(1)
+    } finally {
       if (spark != null) spark.stop()
-      System.exit(1)
-      
-  } finally {
-    if (spark != null) spark.stop()
+    }
   }
 }
-
