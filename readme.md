@@ -93,5 +93,5 @@ A summary of null values in the dataset is written to output/null_counts.txt.
 Ensure that the dataset file, netflix_titles.csv, is available and correctly referenced in the project. You can adjust the path to this dataset in the code if necessary.
 The project is containerized with Docker to ensure a consistent environment across different machines. If you modify the code, you’ll need to rebuild the Docker image:
 ```bash
-docker build -t spark-netflix-analysis .
+docker build -t netflix-eda .
 ```
